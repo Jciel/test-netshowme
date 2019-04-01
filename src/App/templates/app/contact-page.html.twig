@@ -1,0 +1,80 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h4>Contato</h4>
+        </div>
+        <div class="card-body">
+            <div>
+                {% if success %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ successMessage }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+            </div>
+            <div>
+                <form method="post" action="contact" enctype="multipart/form-data">
+                    <div class="">
+                        <div class="form-group offset-3 col-md-6">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{ ('name' in data|keys) ? data.name }}">
+                            {% if errorMessages.name is defined %}
+                                {% for msg in errorMessages.name %}
+                                    <span class="text-danger">{{ msg }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group offset-3 col-lg-6">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ ('email' in data|keys) ? data.email }}">
+                            {% if errorMessages.email is defined %}
+                                {% for msg in errorMessages.email %}
+                                    <span class="text-danger">{{ msg }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group offset-3 col-lg-6">
+                            <label for="phone">Telefone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefone" value="{{ ('phone' in data|keys) ? data.phone }}">
+                            {% if errorMessages.phone is defined %}
+                                {% for msg in errorMessages.phone %}
+                                    <span class="text-danger">{{ msg }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group offset-2 col-lg-8">
+                            <label for="message">Mensagem</label>
+                            <textarea class="form-control" id="message" name="message"
+                                      placeholder="Mensagem">{{ ('message' in data|keys) ? data.message }}</textarea>
+                            {% if errorMessages.message is defined %}
+                                {% for msg in errorMessages.message %}
+                                    <span class="text-danger">{{ msg }}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="fileinput fileinput-new  offset-2 col-lg-8" data-provides="fileinput">
+                            <span class="btn btn-file">
+                                <span>Escolha o arquivo</span>
+                                <input type="file" name="file" id="file" class="btn btn-outline-secondary"/>
+                                {% if errorMessages.file is defined %}
+                                    {% for msg in errorMessages.file %}
+                                        <span class="text-danger">{{ msg }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="btn-group float-right">
+                            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
