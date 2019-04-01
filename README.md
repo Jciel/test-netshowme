@@ -80,6 +80,10 @@ O item ``smtpOptions`` contém a configuração SMTP do servidor utilizado no en
 
 #### __Executando o projeto__
 Para executar o projeto primeiramente deve-se ter o Composer instalado - [composer](https://getcomposer.org)  
+Subir o serviço do MongoDB, algo comoo comando abaixo.  
+```bash
+systemctl start mongodb
+```
 
 Com o Composer instalado, basta entrar no diretório raiz do projeto e roda o seguinte comando para instalar as dependências
 
@@ -101,7 +105,10 @@ Nesse ponto já é possível acessar a URL ``localhost:8080/contact`` para
 acessar a página de contato.  
 
 
+<br>
+
+
 Para rodar os teste basta executar o seguinte comando no diretório raiz:
-``bash
+```bash
 composer test
-``
+```
