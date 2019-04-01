@@ -13,7 +13,7 @@
 
 ##### __Banco de dados__  
 
-No arquivo ``config/autoload/doctrine.php`` ficam as configurações de conexão ao Bando de dados.  
+No arquivo ``config/autoload/doctrine.local.php`` ficam as configurações de conexão ao Bando de dados.  
 - ``server`` IP do servidor do banco de dados;
 - ``port`` Porta do banco de dados;
 - ``user`` Usuário do banco de dados;
@@ -38,7 +38,7 @@ No arquivo ``config/autoload/doctrine.php`` ficam as configurações de conexão
 
 ##### __E-Mails__  
 
-No arquivo ``config/autoload/mail.php`` ficam as configurações para envio de E-Mail.  
+No arquivo ``config/autoload/mail.local.php`` ficam as configurações para envio de E-Mail.  
 
 - ``originEmail`` Email de origem;
 - ``originName`` Nome de origem;
